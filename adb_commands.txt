@@ -1,0 +1,54 @@
+emulator -list-avds --> list all available emulators
+./emulator -avd Pixel_3_XL_API_29 --> open emulator
+
+adb tcpip 5555 --> create tcpip connection and open 5555 port
+adb connect 0.0.0.0:0000 --> connect to the device
+
+adb <device-name> install <path-to-apk> --> install an app to the target device
+
+adb -d shell --> open target device's terminal, -d is for physical device (if there is only one physical device in adb)
+adb -s {your device name} logcat > logs.txt --> write logs from target device to txt file
+adb -d logcat *:W > logs.txt --> write all logs with priority level "warning" or higher
+    V: Verbose (lowest priority)
+    D: Debug
+    I: Info
+    W: Warning
+    E: Error
+    F: Fatal
+    S: Silent (highest priority, on which nothing is ever printed)
+
+    
+telnet localhost 5554 --> connect to your emulator via telnet
+geo fix 22 22 --> set gps coordinates
+gsm call 11111111111 --> simulate a call
+sms send 11111111111 --> send a message
+power status fullpower status charging --> change the power level
+help-verbose --> android console command help
+
+== Screenshot
+adb shell screencap -p /sdcard/screenshot.png
+
+$ adb shell
+shell@ $ screencap /sdcard/screen.png
+shell@ $ exit
+$ adb pull /sdcard/screen.png
+
+== Video recording
+adb shell screenrecord /sdcard/NotAbleToLogin.mp4
+
+$ adb shell
+shell@ $ screenrecord --verbose /sdcard/demo.mp4
+(press Control + C to stop)
+shell@ $ exit
+$ adb pull /sdcard/demo.mp4
+
+// Emulate device
+adb shell wm size 2048x1536
+adb shell wm density 288
+// And reset to default
+adb shell wm size reset
+adb shell wm density reset
+
+
+
+
