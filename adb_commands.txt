@@ -16,6 +16,7 @@ adb -d logcat *:W > logs.txt --> write all logs with priority level "warning" or
     E: Error
     F: Fatal
     S: Silent (highest priority, on which nothing is ever printed)
+adb -d logcat -e "gulfstream" *:W > logs.txt --> write logs for a specific app with priority level "warning" or higher
 
     
 telnet localhost 5554 --> connect to your emulator via telnet
